@@ -1,0 +1,51 @@
+Arun Woosaree
+
+/* Some of the code is copied from http://ugweb.cs.ualberta.ca/~c274/web/ArduinoIntro/code/Lab_SOS/SOS07/SOS07.ino
+which the assignment asks to improve on and complete.
+*/
+
+Accessories:
+- 1 x 560 Ohm (Grn Blu Brown) resistor
+- 1 x LED
+- 1 x Arduino Mega Board (AMG)
+- 1 x Potentiometer
+
+
+Wiring instructions:
+--------------------
+Arduino Pin 13 <--> Resistor <--> Longer LED lead |LED| Shorter LED lead <---> Arduino GND
+
+Arduino 5V Power <--> Outer pin of Potentiometer |Potentiometer| Other outer pin of potentiometer <--> Arduino GND
+
+Middle pin of potentiometer <--> Arduino Analog In 0
+
+Usage instructions:
+--------------------
+Upload the code from sos.ino to your Arduino using the Arduino IDE
+
+
+
+*****************************************************************
+The purpose of this code is to send an SOS signal using Morse code by
+flashing an LED with the Arduino, and to
+vary the speed at which the LED blinks when sending the message using a
+potentiometer. The dotTime is adjusted using the potentiometer.
+
+Commented out pieces of code beginning with Serial.begin or Serial.print were used for debugging purposes and can be re-enabled
+for more verbose output in the serial monitor. "DOT " represents a dot, "DASH " represents a dash, and each "X" represents
+a length of time, the same as dotTime, for when the LED is off
+****************************************************************
+
+Additional comments:
+Originally, I planned to create a function that has an input argument, which accepts
+a string, and the idea was to pass "SOS" as the input argument while calling the
+function in the main loop, so that it would check each character in the string,
+and send an S or an O based on what letter it was.
+This probably would've worked also, but halfway through coding it, I realized that
+it would end up taking more lines of code  than just making the sendS() and
+sendO() functions and calling them in the main loop.
+
+For something as simple as this, it makes sense to just call the sendS() and sendO()
+functions from the main loop, however, if we were sending more letters and words
+with morse code, or if we wanted a user to be able to send a string of his/her choosing,
+I believe the approach I originally had in mind would be desirable.
