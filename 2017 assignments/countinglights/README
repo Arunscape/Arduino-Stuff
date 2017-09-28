@@ -1,0 +1,86 @@
+Arun Woosaree
+
+
+Accessories:
+---------------------------------------------------------------------------------------------------------------------------------------
+-5 x LED (I used 4 Red ones with a green one in the middle, although colour of the LEDs won't change the functionality of the program)
+-5 x 560 Ohm resistors (Green Blue Brown)
+-2 x Pushbuttons
+-1 x Arduino Mega Board
+
+
+Wiring Instructions:
+-------------------------------------------------------------------------------
+Arduino pin 8  <--> Longer LED lead |LED| Shorter LED lead <--> Resistor <--> Arduino GND
+Arduino pin 9  <--> Longer LED lead |LED| Shorter LED lead <--> Resistor <--> Arduino GND
+Arduino pin 10 <--> Longer LED lead |LED| Shorter LED lead <--> Resistor <--> Arduino GND
+Arduino pin 11 <--> Longer LED lead |LED| Shorter LED lead <--> Resistor <--> Arduino GND
+Arduino pin 12 <--> Longer LED lead |LED| Shorter LED lead <--> Resistor <--> Arduino GND
+
+Arduino pin 6 <--> One end of Pushbutton |Pushbutton| Other end of Pushbutton <--> Arduino GND
+Arduino pin 7 <--> One end of Pushbutton |Pushbutton| Other end of Pushbutton <--> Arduino GND
+
+
+
+Usage Instructions:
+----------------------------------------------
+Use the Makefile to compile the countinglights.cpp file and upload it to the Arduino
+The Makefile and the countinglights.cpp file should be in the same directory, so it should be as easy as:
+$ make upload
+
+The pushbutton wired to pin 7 will increment, and
+the pushbutton wired to pin 6 will decrement.
+
+
+Additional thoughts:
+---------------------------------
+Initially, I didn't know why we were coding a program that would turn some LEDs
+on and off seemingly randomly, however after taking a break and doing some ECE 210
+homework, it soon dawned on me that maybe the LEDs were supposed to represent binary numbers
+using 5 bits, which actually now seems very cool. Having learned binary in ECE 210
+I made a chart that looks like this:
+
+0	  00000
+1	  00001
+2	  00010
+3	  00011
+4	  00100
+5	  00101
+6	  00110
+7	  00111
+8	  01000
+9	  01001
+10	01010
+11	01011
+12	01100
+13	01101
+14	01110
+15	01111
+16	10000
+17	10001
+18	10010
+19	10011
+20	10100
+21	10101
+22	10110
+23	10111
+24	11000
+25	11001
+26	11010
+27	11011
+28	11100
+29	11101
+30	11110
+31	11111
+
+From which I could visually see how the lights were supposed to change for
+each number they would represent, as opposed to some vague instructions with one picture
+that shows only a few examples of how the LEDs should change.
+
+Having done this, it was easy to see the pattern I needed to follow, in order to
+get the desired result, and to make it decrement was as easy as copying the function
+I made for incrementing, and changing where it says HIGH to LOW and LOW to HIGH.
+
+In hindsight, there is code where some functions are so similar that one was copy-pasted, then modified (like the increment() and decrement() functions,
+and the WaitforRelease() functions. Ideally, I would've used classes to have less redundant code, however, I am not comfortable with the syntax for C++ classes as of now.
+Or, maybe I could've even used input arguments for the LOW and HIGH values and passed them into a regular function.
