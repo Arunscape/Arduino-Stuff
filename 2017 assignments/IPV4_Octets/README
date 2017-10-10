@@ -66,4 +66,4 @@ I also made a function called AdvancedtestGetOctet() which generates pseudo rand
 ip addresses. (Pseudo random, because it uses the random() function to help generate
 the ip addresses, which is not totally random. However, this function acheives the
 purpose of testing the program against a lot of IP addresses) If you would like
-to check it out, uncomment line 171.
+to check it out, uncomment line 170.
