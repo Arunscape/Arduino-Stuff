@@ -1,0 +1,69 @@
+Purpose:
+--------------------------------------------------------------------------------
+This program accepts input for a 32 bit unsigned integer that represents an ip
+address in decimal form. The program will then print the value of each octet in
+the ip address you entered. To acheive this functionality, the program uses
+bitshifting, and the bitwise AND operation.
+
+Accessories:
+--------------------------------------------------------------------------------
+-1 x Arduino Mega Board
+
+
+Wiring Instructions:
+--------------------------------------------------------------------------------
+Plug in the arduino to your computer
+
+
+Usage Instructions:
+--------------------------------------------------------------------------------
+Open a terminal window in the same directory as the project folder.
+(Assuming you have arduino-ua in your PATH)
+
+Then, do a
+________________
+| $ make upload |
+|_______________|
+
+and type in
+_______________
+| $ serial-mon |
+|______________|
+
+The program will then instruct you to enter an ip address in decimal form.
+You can easily test some ip addresses by converting them to decimal form
+using this website: https://www.browserling.com/tools/ip-to-dec
+And enter the decimal form of the ip address when prompted to do so
+
+Example of how the program works:
+The ip address 74.125.224.72 can be broken up into 4 octets:
+
+Octet 3 Octet 2  Octet 1  Octet 0
+ 74      125      224       72
+ |        |        |        |
+1001010 01111101 11100000 01001000
+
+If you combine all these bits into one long string of ones and zeros you get:
+1001010011111011110000001001000
+
+Which can be read as 1249763400 in the decimal system that we all know and love.
+
+The program will then read each octet and produce output similar to this:
+Octet 0: 72
+Octet 1: 224
+Octet 2: 125
+Octet 3: 74
+
+Before asking for input, the program will do some basic tests. The last two tests
+are designed to fail, so do not worry about the last two errors that are thrown.
+The first 4 tests before it should say "Test passed"
+
+Additional thoughts:
+--------------------------------------------------------------------------------
+(Aside from Atom overwriting this really nice README file that I had to redo...)
+
+I also made a function called AdvancedtestGetOctet() which generates pseudo random
+ip addresses. (Pseudo random, because it uses the random() function to help generate
+the ip addresses, which is not totally random. However, this function acheives the
+purpose of testing the program against a lot of IP addresses) If you would like
+to check it out, uncomment line 171.
