@@ -1,0 +1,52 @@
+Names:
+--------------------------------------------------------------------------------
+Arun Woosaree
+Tamara Bojovic
+
+
+Purpose:
+--------------------------------------------------------------------------------
+This program allows serial communication between Arduinos. The characters are
+encrypted using XOR encryption. Two private keys are generated using the least
+significant bit from 16 readings from the analogPin. From this, public keys are
+generated and exchanged, allowing a shared key to be used for the encryption.
+
+Accessories:
+--------------------------------------------------------------------------------
+-3 x Breadboard Jumper Wires
+-2 x Arduino Mega Board
+
+
+Wiring Instructions:
+--------------------------------------------------------------------------------
+Arduino 1 GND <--> Arduino 2 GND
+Arduino 1 TX3 14 <--> Arduino 2 RX3 15
+Arduino 1 RX3 15 <--> Arduino 2 TX3 14
+
+
+Usage Instructions:
+--------------------------------------------------------------------------------
+Open a terminal window in the same directory as the project folder.
+Then, do a
+________________
+| $ make upload |
+|_______________|
+
+and type in
+_______________
+| $ serial-mon |
+|______________|
+
+You will then have to share your public key with your partner, and your partner
+will have to share his/her public key with you.
+Both of you have to manually type in your partner's public key when the program
+prompts you to do so. Do not share your private or shared keys!
+
+
+Acknowledgments:
+---------------------------------
+the powMod() function was created in class, and can be found here:
+https://drive.google.com/file/d/0BzukoWTLryYpUklCNTlkUWhuV3c/view?usp=sharing
+
+the "skeleton" of the chat() function was also developed in class, which we
+modified to add the XOR encryption

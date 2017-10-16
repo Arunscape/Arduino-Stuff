@@ -1,0 +1,78 @@
+Names:
+Arun Woosaree
+Tamara Bojovic
+
+Assignment 1 Part 2 Encrypted Chat
+--------------------------------------------------------------------------------
+
+Purpose:
+--------------------------------------------------------------------------------
+This program allows serial communication between Arduinos. The characters are
+encrypted using XOR encryption. Two private keys are generated using the least
+significant bit from 32 readings from the analogPin. From this, public keys are
+generated and exchanged automatically, allowing a shared key to be used for the
+encryption. For added security, the program makes use of a rolling cipher.
+Initially, both Arduinos start with the same shared key. The arduinos use two
+streams for the encryption, and both these streams also start with the same
+key, which is initially the shared key. From there, When one Arduino sends any
+character , that Arduino uses its encrypt_key to send and encrypted character to
+the other Arduino. This other arduino will use its decrypt_key to decrypt the
+character. Whenever one person types a new character, the encrypt_key is
+discarded and a new one is generated. Similarly, whenever one person receives
+a new character, the decrypt_key is discarded once used, and a new one is
+generated.
+
+Accessories:
+--------------------------------------------------------------------------------
+-1 x Resistor (according to instructions from eclass, "any resistor will do")
+-2 x Arduino Mega Board
+
+
+
+Wiring Instructions:
+Arduino 1 GND <--> Arduino 2 GND
+Arduino 1 TX3 14 <--> Arduino 2 RX3 15
+Arduino 1 RX3 15 <--> Arduino 2 TX3 14
+
+(Assuming Arduino 1 is server and Arduino 2 is client)
+Arduino 1 pin 13 <--> Resistor <--> Arduino 1 GND
+Arduino 2 pin 13 <--> Arduino 2 GND
+
+
+
+Usage Instructions:
+--------------------------------------------------------------------------------
+Open a terminal window in the same directory as the project folder.
+Then, do a
+________________
+| $ make upload |
+|_______________|
+
+and type in
+_______________
+| $ serial-mon |
+|______________|
+
+The key exchange should happen automatically, however we noticed more consistent
+results if you follow the following sequence:
+
+1. make upload on both Arduinos, but do not enter the serial monitor on either
+2. Enter the serial monitor on both Arduinos, the order should not matter
+
+
+Acknowledgments:
+---------------------------------
+the powModFast() function was created in class, and can be found here:
+https://drive.google.com/file/d/0BzukoWTLryYpcXRUdFVNUi1wRXc/view?usp=sharing
+
+This function had to be modified to call a new function we developed called
+mulMod(), which allows the powModFast function to now overflow with large 32-bit
+unsigned integers.
+
+The "skeleton" of the chat function in the main while loop was also developed in
+class, which we modified to add the XOR encryption
+
+next_key(), wait_on_serial3(), uint32_to_serial3(), uint32_from_serial3()
+are all functions that were given on eclass, and were not written by us.
+
+*/
