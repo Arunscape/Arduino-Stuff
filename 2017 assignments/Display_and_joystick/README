@@ -1,0 +1,74 @@
+Arun Woosaree
+
+Display and Joystick
+--------------------------------------------------------------------------------
+
+Purpose:
+--------------------------------------------------------------------------------
+This program is a precursor to Assignment 2, and the map displayed is a map of
+Edmonton. Eventually, in Assignment 2 we will have a program that finds
+displays a list of restaurants close to where you click the cursor
+
+Accessories:
+--------------------------------------------------------------------------------
+-1 x Arduino Mega Board
+-1 x SainSmart Joystick
+-1 x Adafruit ILI9341 display
+
+
+
+Wiring Instructions:
+--------------------------------------------------------------------------------
+
+Joystick   Arduino
+----------------------------
+GND  <-->  GND (board bus)
+5V   <-->  5V (board bus)
+VRX  <-->  Analog Pin 1
+VRY  <-->  Analog Pin 0
+SW   <-->  Digital Pin 2
+
+
+Display               Arduino
+------------------------------------
+GND        <-->       GND
+Vin        <-->       5V
+3Vo        <-->       NOT CONNECTED
+CLK        <-->       52
+MISO       <-->       50
+MOSI       <-->       51
+CS         <-->       10
+D/C        <-->       9
+RST        <-->       NOT CONNECTED
+Lite       <-->       NOT CONNECTED
+Y+         <-->       A2 (analog pin)
+X+         <-->       4  (digital pin)
+Y-         <-->       5  (digital pin)
+X-         <-->       A3 (analog pin)
+IM0 - IM3  <-->       NOT CONNECTED (they expect a 3.3v signal, DON'T CONNECT!)
+CCS        <-->       6
+CD         <-->       NOT CONNECTED
+
+
+Usage Instructions:
+--------------------------------------------------------------------------------
+Open a terminal window in the same directory as the project folder.
+Then, do a
+________________
+| $ make upload |
+|_______________|
+
+and type in
+_______________
+| $ serial-mon |
+|______________|
+
+Now, you can use the joystick to move the red cursor on the screen
+
+
+Acknowledgments:
+--------------------------------------------------------------------------------
+A lot of code was developed in class. For this assignment, we had to modify the
+code such that the cursor does not leave a black trail, add variable cursor
+speed, the cursor shouldn't flash while not moving,and the cursor should not be
+able to move off the edge of the map.

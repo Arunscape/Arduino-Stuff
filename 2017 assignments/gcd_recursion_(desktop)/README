@@ -1,0 +1,19 @@
+Arun Woosaree
+
+GCD
+--------------------------------------------------------------------------------
+
+A very simple program which computes the greatest common denominator of two
+positive integers, which the user is prompted to enter.
+
+Usage: open a terminal window in the program folder, and type make. Then run
+./exercise7 and the program will prompt you to enter two positive integers.
+
+More clearly, run these commands:
+
+$ cd Exercise7
+$ make
+$ ./exercise7
+
+Should you want to clean up the build files just run a 
+$ make clean

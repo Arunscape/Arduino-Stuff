@@ -1,0 +1,32 @@
+Arun Woosaree
+
+Stack using linked lists
+--------------------------------------------------------------------------------
+
+
+
+Usage: Any program can make use of the stack implementation by having an
+#include "stack.exercise8.h"
+at the top of the program. Then, the available methods to use are:
+
+~Stack()  : empties the stack
+isEmpty() : returns boolean 1 if the stack is empty
+top()     : returns the data stored in the top of the stack
+pop()     : deletes item from top of the stack
+push(item): allows you to push an integer onto the top of the stack
+
+This Stack ADT (Abstract Data Type) uses linked lists to manage the stack
+implementation. Before, with the array implementation of the stack, memory
+use was inefficient since, a new array twice the size of the previous array
+was created and items copied over whenever a push was done. With the linked
+list, the data structure grows as more data is added in a much more sensible way
+Each node in the linked list contains an array of 4 integers.
+
+
+Acknowledgements:
+--------------------------------------------------------------------------------
+mycodeschool's videos on Youtube helped with understanding linked lists.
+https://www.youtube.com/user/mycodeschool
+some of the videos I watched were:
+https://www.youtube.com/watch?v=MuwxQ2IB8lQ
+https://youtu.be/Y0n86K43GO4

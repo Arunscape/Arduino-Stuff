@@ -1,0 +1,74 @@
+/*
+Arun Woosaree
+the bulk of code was developed in class. The getRestaurantFast() function was added
+and a few minor modifications were made. The modifications are highlighted with
+NOTE in the comments where I explain the tweaks. Some original bits have just
+been completely commented out because they printed unwanted messages to the
+serial monitor
+
+Acknowledgements:
+Christian Lo and Zhijie Shen helped me out with understanding pointers
+
+The original code can be found here:
+https://drive.google.com/file/d/0BzukoWTLryYpeGhkUUM2S3RwYzg/view?usp=sharing
+*/
+
+
+Purpose:
+--------------------------------------------------------------------------------
+This exercise guided us to think of a more efficient way to read a list of
+restaurants from the SD card of the Arduino. In the previous implementation,
+the function getRestaurant() would read the same block multiple times if the
+reastauraunts requested were in the same block. Now, in the new implementation,
+getRestaurantFast() if the restaurant requested is already in the block that is
+loaded into memory, the Arduino won't unnessecirily read that block from the SD
+card again
+
+Accessories:
+--------------------------------------------------------------------------------
+-1 x Arduino Mega Board
+-1 x Adafruit ILI9341 display
+-1 x 8GB SD microSD card
+
+
+Wiring Instructions:
+--------------------------------------------------------------------------------
+Insert a properly formatted SD card with the correct files in the display board
+connected to the Arduino. Wiring instructions for the display are below:
+
+
+Display               Arduino
+------------------------------------
+GND        <-->       GND
+Vin        <-->       5V
+3Vo        <-->       NOT CONNECTED
+CLK        <-->       52
+MISO       <-->       50
+MOSI       <-->       51
+CS         <-->       10
+D/C        <-->       9
+RST        <-->       NOT CONNECTED
+Lite       <-->       NOT CONNECTED
+Y+         <-->       A2 (analog pin)
+X+         <-->       4  (digital pin)
+Y-         <-->       5  (digital pin)
+X-         <-->       A3 (analog pin)
+IM0 - IM3  <-->       NOT CONNECTED (they expect a 3.3v signal, DON'T CONNECT!)
+CCS        <-->       6
+CD         <-->       NOT CONNECTED
+
+
+Usage Instructions:
+--------------------------------------------------------------------------------
+Open a terminal window in the same directory as the project folder.
+Then, do a
+________________
+| $ make upload |
+|_______________|
+
+and type in
+_______________
+| $ serial-mon |
+|______________|
+
+And watch how much faster getRestaurantFast() is compared to getRestaurant()
