@@ -3,7 +3,7 @@ Arun Woosaree
 GCD
 --------------------------------------------------------------------------------
 
-A very simple program which computes the greatest common denominator of two
+A very simple program which computes the greatest common divisor of two
 positive integers, which the user is prompted to enter.
 
 Usage: open a terminal window in the program folder, and type make. Then run
